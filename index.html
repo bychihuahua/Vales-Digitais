@@ -1045,6 +1045,7 @@ Equipa Vales Digitais
             const welcomeButtons = document.querySelectorAll('.copy-welcome-btn');
             const welcomeTextElement = document.getElementById('welcomeText');
             const copyWelcomeBtn = document.getElementById('copyWelcomeBtn');
+            let currentWelcomeText = '';
             
             // Elementos da aba Ativação
             const generateOneCampaignBtn = document.getElementById('generateOneCampaignBtn');
@@ -1517,6 +1518,18 @@ Escolhe ou sugere as melhores imagens para cada ad.`
             });
             
             // Função para copiar para clipboard
+            function normalizeMessageText(text) {
+                if (!text) {
+                    return '';
+                }
+
+                return text
+                    .replace(/\\n/g, '\n')
+                    .replace(/\r\n/g, '\n')
+                    .replace(/\u00a0/g, ' ')
+                    .trim();
+            }
+
             function copyToClipboard(text, buttonElement = null) {
                 navigator.clipboard.writeText(text)
                     .then(() => {
@@ -1561,7 +1574,8 @@ Escolhe ou sugere as melhores imagens para cada ad.`
                     const budget = this.getAttribute('data-budget');
                     
                     // Seleciona o welcome correto baseado no orçamento
-                    const welcome = welcomeTemplates[budget];
+                    const welcome = normalizeMessageText(welcomeTemplates[budget]);
+                    currentWelcomeText = welcome;
                     
                     // Atualizar o preview
                     welcomeTextElement.innerHTML = `
@@ -1577,9 +1591,8 @@ Escolhe ou sugere as melhores imagens para cada ad.`
             // Configurar botão de copiar welcome do preview
             document.addEventListener('click', function(e) {
                 if (e.target && e.target.id === 'copyWelcomeBtn') {
-                    const welcomeText = welcomeTextElement.innerText.replace('Copiar Welcome', '').trim();
-                    if (welcomeText !== 'Selecione um orçamento acima para visualizar e copiar o template de welcome correspondente.') {
-                        copyToClipboard(welcomeText, e.target);
+                    if (currentWelcomeText) {
+                        copyToClipboard(currentWelcomeText, e.target);
                     }
                 }
             });
@@ -1840,9 +1853,8 @@ Escolhe ou sugere as melhores imagens para cada ad.`
                                 copyToClipboard(promptText, copyPromptBtn);
                             }
                         } else if (activeTab === 'welcomes-tab') {
-                            const welcomeText = welcomeTextElement.innerText.replace('Copiar Welcome', '').trim();
-                            if (welcomeText !== 'Selecione um orçamento acima para visualizar e copiar o template de welcome correspondente.') {
-                                copyToClipboard(welcomeText, copyWelcomeBtn);
+                            if (currentWelcomeText) {
+                                copyToClipboard(currentWelcomeText, copyWelcomeBtn);
                             }
                         } else if (activeTab === 'hello-tab') {
                             // Não copia nada da aba Olá Equipa

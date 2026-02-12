@@ -499,6 +499,15 @@
             display: block;
             animation: fadeIn 0.3s ease;
         }
+
+        .platform-welcomes {
+            display: none;
+        }
+
+        .platform-welcomes.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
         
         .campaign-buttons {
             display: grid;
@@ -699,54 +708,100 @@
     <div id="welcomes-tab" class="tab-content">
         <div class="welcome-section">
             <h2>Templates de Welcome</h2>
-            
-            <div class="budget-grid">
-                <div class="budget-card">
-                    <div class="budget-price">500€</div>
-                    <ul class="budget-features">
-                        <li>5 anúncios criados</li>
-                        <li>2 categorias de anúncios</li>
-                        <li>Google Ads (GA)</li>
-                        <li>Template completo de boas-vindas</li>
-                    </ul>
-                    <button class="prompt-btn copy-welcome-btn" data-budget="500">Copiar Welcome 500€</button>
-                </div>
-                
-                <div class="budget-card">
-                    <div class="budget-price">1000€</div>
-                    <ul class="budget-features">
-                        <li>8 anúncios criados</li>
-                        <li>3 categorias de anúncios</li>
-                        <li>Google Ads (GA)</li>
-                        <li>Template completo de boas-vindas</li>
-                        <li>Mais informações de segmentação</li>
-                    </ul>
-                    <button class="prompt-btn copy-welcome-btn" data-budget="1000">Copiar Welcome 1000€</button>
-                </div>
-                
-                <div class="budget-card">
-                    <div class="budget-price">1500€+</div>
-                    <ul class="budget-features">
-                        <li>12 anúncios criados</li>
-                        <li>4 categorias de anúncios</li>
-                        <li>Google Ads (GA)</li>
-                        <li>Template completo de boas-vindas</li>
-                        <li>Estratégia avançada</li>
-                    </ul>
-                    <button class="prompt-btn copy-welcome-btn" data-budget="1500">Copiar Welcome 1500€+</button>
+
+            <div class="platform-buttons welcome-platform-buttons">
+                <button class="platform-btn welcome-platform-btn active" data-welcome-platform="google">Google Ads</button>
+                <button class="platform-btn welcome-platform-btn" data-welcome-platform="meta">Meta Ads</button>
+            </div>
+
+            <div id="google-welcomes" class="platform-welcomes active">
+                <div class="budget-grid">
+                    <div class="budget-card">
+                        <div class="budget-price">500€</div>
+                        <ul class="budget-features">
+                            <li>5 anúncios criados</li>
+                            <li>2 categorias de anúncios</li>
+                            <li>Google Ads (GA)</li>
+                            <li>Template completo de boas-vindas</li>
+                        </ul>
+                        <button class="prompt-btn copy-welcome-btn" data-budget="500" data-platform="google">Copiar Welcome 500€</button>
+                    </div>
+
+                    <div class="budget-card">
+                        <div class="budget-price">1000€</div>
+                        <ul class="budget-features">
+                            <li>8 anúncios criados</li>
+                            <li>3 categorias de anúncios</li>
+                            <li>Google Ads (GA)</li>
+                            <li>Template completo de boas-vindas</li>
+                            <li>Mais informações de segmentação</li>
+                        </ul>
+                        <button class="prompt-btn copy-welcome-btn" data-budget="1000" data-platform="google">Copiar Welcome 1000€</button>
+                    </div>
+
+                    <div class="budget-card">
+                        <div class="budget-price">1500€+</div>
+                        <ul class="budget-features">
+                            <li>12 anúncios criados</li>
+                            <li>4 categorias de anúncios</li>
+                            <li>Google Ads (GA)</li>
+                            <li>Template completo de boas-vindas</li>
+                            <li>Estratégia avançada</li>
+                        </ul>
+                        <button class="prompt-btn copy-welcome-btn" data-budget="1500" data-platform="google">Copiar Welcome 1500€+</button>
+                    </div>
                 </div>
             </div>
-            
+
+            <div id="meta-welcomes" class="platform-welcomes">
+                <div class="budget-grid">
+                    <div class="budget-card">
+                        <div class="budget-price">500€</div>
+                        <ul class="budget-features">
+                            <li>5 anúncios criados</li>
+                            <li>2 categorias de anúncios</li>
+                            <li>Meta Ads (MA)</li>
+                            <li>Template de boas-vindas Meta</li>
+                        </ul>
+                        <button class="prompt-btn copy-welcome-btn" data-budget="500" data-platform="meta">Copiar Welcome Meta 500€</button>
+                    </div>
+
+                    <div class="budget-card">
+                        <div class="budget-price">1000€</div>
+                        <ul class="budget-features">
+                            <li>8 anúncios criados</li>
+                            <li>3 categorias de anúncios</li>
+                            <li>Meta Ads (MA)</li>
+                            <li>Template de boas-vindas Meta</li>
+                            <li>Mais opções de segmentação</li>
+                        </ul>
+                        <button class="prompt-btn copy-welcome-btn" data-budget="1000" data-platform="meta">Copiar Welcome Meta 1000€</button>
+                    </div>
+
+                    <div class="budget-card">
+                        <div class="budget-price">1500€+</div>
+                        <ul class="budget-features">
+                            <li>12 anúncios criados</li>
+                            <li>4 categorias de anúncios</li>
+                            <li>Meta Ads (MA)</li>
+                            <li>Template de boas-vindas Meta</li>
+                            <li>Estratégia avançada</li>
+                        </ul>
+                        <button class="prompt-btn copy-welcome-btn" data-budget="1500" data-platform="meta">Copiar Welcome Meta 1500€+</button>
+                    </div>
+                </div>
+            </div>
+
             <h3>Preview do Welcome:</h3>
             <div class="welcome-text" id="welcomeText">
                 <button class="copy-btn" id="copyWelcomeBtn" title="Clique para copiar">Copiar Welcome</button>
-                Selecione um orçamento acima para visualizar e copiar o template de welcome correspondente.
+                Selecione uma plataforma e orçamento acima para visualizar e copiar o template de welcome correspondente.
             </div>
-            
+
             <p class="shortcut-info">Clique nos botões para copiar automaticamente cada template específico</p>
         </div>
     </div>
-    
+
     <!-- Aba Anunciante -->
     <div id="advertiser-tab" class="tab-content">
         <div class="advertiser-section">
@@ -1043,13 +1098,15 @@ Equipa Vales Digitais
             const generatedText = document.getElementById('generatedText');
             
             // Elementos da aba Prompts
-            const platformButtons = document.querySelectorAll('.platform-btn');
-            const platformPrompts = document.querySelectorAll('.platform-prompts');
+            const platformButtons = document.querySelectorAll('#prompts-tab .platform-btn');
+            const platformPrompts = document.querySelectorAll('#prompts-tab .platform-prompts');
             const promptButtons = document.querySelectorAll('.copy-prompt-btn');
             const promptTextElement = document.getElementById('promptText');
             const copyPromptBtn = document.getElementById('copyPromptBtn');
             
             // Elementos da aba Welcomes
+            const welcomePlatformButtons = document.querySelectorAll('.welcome-platform-btn');
+            const welcomePlatforms = document.querySelectorAll('.platform-welcomes');
             const welcomeButtons = document.querySelectorAll('.copy-welcome-btn');
             const welcomeTextElement = document.getElementById('welcomeText');
             const copyWelcomeBtn = document.getElementById('copyWelcomeBtn');
@@ -1193,7 +1250,8 @@ Equipa Leadzai`
             
             // Templates de Welcome - COM FORMATAÇÃO CORRETA DE EMAIL
             const welcomeTemplates = {
-                500: `Olá,
+                google: {
+                    500: `Olá,
 
 É com grande satisfação que confirmamos a receção da sua subscrição e damos-lhe as boas-vindas! A partir de agora, poderá beneficiar dos nossos serviços através do Voucher Digital e usufruir de campanhas automatizadas e otimizadas para potenciar a visibilidade do seu negócio online.
 
@@ -1239,7 +1297,7 @@ Agradecemos a confiança depositada em nós e estamos entusiasmados para trabalh
 Com os melhores cumprimentos,
 Equipa Leadzai`,
 
-                1000: `Olá,
+                    1000: `Olá,
 
 É com grande satisfação que confirmamos a receção da sua subscrição e damos-lhe as boas-vindas! A partir de agora, poderá beneficiar dos nossos serviços através do Voucher Digital e usufruir de campanhas automatizadas e otimizadas para potenciar a visibilidade do seu negócio online.
 
@@ -1287,7 +1345,7 @@ Agradecemos a confiança depositada em nós e estamos entusiasmados para trabalh
 Com os melhores cumprimentos,
 Equipa Leadzai`,
 
-                1500: `Olá,
+                    1500: `Olá,
 
 É com grande satisfação que confirmamos a receção da sua subscrição e damos-lhe as boas-vindas! A partir de agora, poderá beneficiar dos nossos serviços através do Voucher Digital e usufruir de campanhas automatizadas e otimizadas para potenciar a visibilidade do seu negócio online.
 
@@ -1337,6 +1395,128 @@ Agradecemos a confiança depositada em nós e estamos entusiasmados para trabalh
 
 Com os melhores cumprimentos,
 Equipa Leadzai`
+                },
+                meta: {
+                    500: `Olá,
+
+É com grande satisfação que confirmamos a receção da sua subscrição e damos-lhe as boas-vindas! A partir de agora, poderá beneficiar dos nossos serviços através do Voucher Digital e usufruir de campanhas automatizadas e otimizadas para potenciar a visibilidade do seu negócio online.
+
+📈 Como Funciona o Nosso Serviço:
+1. 🛠️ Criação Automática com IA:
+A nossa plataforma analisa automaticamente o seu website e cria anúncios otimizados, utilizando Inteligência Artificial para destacar os seus produtos e serviços mais relevantes.
+2. 📊 Acompanhamento Humano & Otimização Contínua:
+A nossa equipa especialista monitoriza o desempenho da campanha 24/7, fazendo ajustes estratégicos em palavras-chave, orçamentos e criativos para garantir os melhores resultados possíveis.
+3. 📋 Relatórios Mensais de Desempenho:
+Receberá relatórios detalhados todos os meses com todas as métricas-chave (como cliques, impressões e conversões), garantindo total transparência sobre o retorno do seu investimento.
+4. 💰 Taxa de Gestão Incluída:
+Todo o trabalho de gestão, optimização e reporte está incluído no valor do plano. Não existem custos adicionais ou surpresas.
+5. 🧾 Pagamento do IVA (Pré-ativação):
+Para cumprirmos com as obrigações fiscais, o valor do IVA deve ser liquidado antes da ativação da campanha. Para finalizar o processo, é necessário que nos envie o comprovativo deste pagamento.
+
+Estrutura do seu plano (Voucher de 500€):
+• 5 anúncios criados para otimizar o alcance da sua campanha.
+• 2 categorias de anúncios distintas, permitindo segmentação e teste de diferentes abordagens.
+
+Informações necessárias para a campanha:
+1. Nome comercial?
+2. Link do website?
+3. Qual é o endereço de e-mail que é administrador/owner da página?
+4. Número de contacto a constar no anúncio?
+5. Duração da campanha (aconselhamos 3 meses)?
+6. Segmentação geográfica (apenas Portugal)?
+7. Qual é a sua persona/público-alvo (idade, sexo, interesses)
+8. Que serviço e/ou produto gostaria de destacar? Necessitamos que nos envie imagens e logo.
+
+⚠️ Prazo legal:
+Não perca a oportunidade de expandir o seu negócio com uma campanha personalizada! Ao enviar as informações no prazo, garante que os anúncios estão 100% alinhados com a sua visão. Após o prazo, a criação será automática.
+
+Estamos ao seu dispor para esclarecer qualquer dúvida ou necessidade adicional.
+Agradecemos a confiança depositada em nós e estamos entusiasmados para trabalhar consigo e impulsionar o sucesso digital do seu negócio.
+
+Com os melhores cumprimentos,
+Equipa Leadzai`,
+
+                    1000: `Olá,
+
+É com grande satisfação que confirmamos a receção da sua subscrição e damos-lhe as boas-vindas! A partir de agora, poderá beneficiar dos nossos serviços através do Voucher Digital e usufruir de campanhas automatizadas e otimizadas para potenciar a visibilidade do seu negócio online.
+
+📈 Como Funciona o Nosso Serviço:
+1. 🛠️ Criação Automática com IA:
+A nossa plataforma analisa automaticamente o seu website e cria anúncios otimizados, utilizando Inteligência Artificial para destacar os seus produtos e serviços mais relevantes.
+2. 📊 Acompanhamento Humano & Otimização Contínua:
+A nossa equipa especialista monitoriza o desempenho da campanha 24/7, fazendo ajustes estratégicos em palavras-chave, orçamentos e criativos para garantir os melhores resultados possíveis.
+3. 📋 Relatórios Mensais de Desempenho:
+Receberá relatórios detalhados todos os meses com todas as métricas-chave (como cliques, impressões e conversões), garantindo total transparência sobre o retorno do seu investimento.
+4. 💰 Taxa de Gestão Incluída:
+Todo o trabalho de gestão, optimização e reporte está incluído no valor do plano. Não existem custos adicionais ou surpresas.
+5. 🧾 Pagamento do IVA (Pré-ativação):
+Para cumprirmos com as obrigações fiscais, o valor do IVA deve ser liquidado antes da ativação da campanha. Para finalizar o processo, é necessário que nos envie o comprovativo deste pagamento.
+
+Estrutura do seu plano (Voucher de 1000€):
+• 8 anúncios criados para otimizar o alcance da sua campanha.
+• 3 categorias de anúncios distintas, permitindo segmentação e teste de diferentes abordagens.
+
+Informações necessárias para a campanha:
+1. Nome comercial?
+2. Link do website?
+3. Qual é o endereço de e-mail que é administrador/owner da página?
+4. Número de contacto a constar no anúncio?
+5. Duração da campanha (aconselhamos 3 meses)?
+6. Segmentação geográfica (apenas Portugal)?
+7. Qual é a sua persona/público-alvo (idade, sexo, interesses)?
+8. Que serviço e/ou produto gostaria de destacar? Necessitamos que nos envie imagens e logo.
+9. Há alguma promoção ou oferta a destacar nesta campanha?
+
+⚠️ Prazo legal:
+Não perca a oportunidade de expandir o seu negócio com uma campanha personalizada! Ao enviar as informações no prazo, garante que os anúncios estão 100% alinhados com a sua visão. Após o prazo, a criação será automática.
+
+Estamos ao seu dispor para esclarecer qualquer dúvida ou necessidade adicional.
+Agradecemos a confiança depositada em nós e estamos entusiasmados para trabalhar consigo e impulsionar o sucesso digital do seu negócio.
+
+Com os melhores cumprimentos,
+Equipa Leadzai`,
+
+                    1500: `Olá,
+
+É com grande satisfação que confirmamos a receção da sua subscrição e damos-lhe as boas-vindas! A partir de agora, poderá beneficiar dos nossos serviços através do Voucher Digital e usufruir de campanhas automatizadas e otimizadas para potenciar a visibilidade do seu negócio online.
+
+📈 Como Funciona o Nosso Serviço:
+1. 🛠️ Criação Automática com IA:
+A nossa plataforma analisa automaticamente o seu website e cria anúncios otimizados, utilizando Inteligência Artificial para destacar os seus produtos e serviços mais relevantes.
+2. 📊 Acompanhamento Humano & Otimização Contínua:
+A nossa equipa especialista monitoriza o desempenho da campanha 24/7, fazendo ajustes estratégicos em palavras-chave, orçamentos e criativos para garantir os melhores resultados possíveis.
+3. 📋 Relatórios Mensais de Desempenho:
+Receberá relatórios detalhados todos os meses com todas as métricas-chave (como cliques, impressões e conversões), garantindo total transparência sobre o retorno do seu investimento.
+4. 💰 Taxa de Gestão Incluída:
+Todo o trabalho de gestão, optimização e reporte está incluído no valor do plano. Não existem custos adicionais ou surpresas.
+5. 🧾 Pagamento do IVA (Pré-ativação):
+Para cumprirmos com as obrigações fiscais, o valor do IVA deve ser liquidado antes da ativação da campanha. Para finalizar o processo, é necessário que nos envie o comprovativo deste pagamento.
+
+Estrutura do seu plano (Voucher de 1500€+):
+• 12 anúncios criados para otimizar o alcance da sua campanha.
+• 4 categorias de anúncios distintas, permitindo segmentação e teste de diferentes abordagens.
+
+Informações necessárias para a campanha:
+1. Nome comercial?
+2. Link do website?
+3. Qual é o endereço de e-mail que é administrador/owner da página?
+4. Número de contacto a constar no anúncio?
+5. Duração da campanha (aconselhamos 3 meses)?
+6. Segmentação geográfica (apenas Portugal)?
+7. Qual é a sua persona/público-alvo (idade, sexo, interesses)?
+8. Que serviço e/ou produto gostaria de destacar? Necessitamos que nos envie imagens e logo.
+9. Há campanhas anteriores ou referências visuais que queira seguir?
+10. Qual é o principal objetivo de negócio para os próximos 3 meses?
+
+⚠️ Prazo legal:
+Não perca a oportunidade de expandir o seu negócio com uma campanha personalizada! Ao enviar as informações no prazo, garante que os anúncios estão 100% alinhados com a sua visão. Após o prazo, a criação será automática.
+
+Estamos ao seu dispor para esclarecer qualquer dúvida ou necessidade adicional.
+Agradecemos a confiança depositada em nós e estamos entusiasmados para trabalhar consigo e impulsionar o sucesso digital do seu negócio.
+
+Com os melhores cumprimentos,
+Equipa Leadzai`
+                }
             };
             
             // Prompts predefinidos Google Ads
@@ -1534,7 +1714,25 @@ Escolhe ou sugere as melhores imagens para cada ad.`
                     // Atualiza o preview do prompt
                     promptTextElement.innerHTML = `
                         <button class="copy-btn" id="copyPromptBtn" title="Clique para copiar">Copiar Prompt</button>
-                        Selecione um orçamento acima para visualizar e copiar o prompt correspondente.
+                        Selecione uma plataforma e orçamento acima para visualizar e copiar o prompt correspondente.
+                    `;
+                });
+            });
+
+            welcomePlatformButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const platform = button.getAttribute('data-welcome-platform');
+
+                    welcomePlatformButtons.forEach(btn => btn.classList.remove('active'));
+                    welcomePlatforms.forEach(welcome => welcome.classList.remove('active'));
+
+                    button.classList.add('active');
+                    document.getElementById(`${platform}-welcomes`).classList.add('active');
+
+                    currentWelcomeText = '';
+                    welcomeTextElement.innerHTML = `
+                        <button class="copy-btn" id="copyWelcomeBtn" title="Clique para copiar">Copiar Welcome</button>
+                        Selecione uma plataforma e orçamento acima para visualizar e copiar o template de welcome correspondente.
                     `;
                 });
             });
@@ -1594,9 +1792,14 @@ Escolhe ou sugere as melhores imagens para cada ad.`
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     const budget = this.getAttribute('data-budget');
+                    const platform = this.getAttribute('data-platform') || 'google';
                     
-                    // Seleciona o welcome correto baseado no orçamento
-                    const welcome = normalizeMessageText(welcomeTemplates[budget]);
+                    // Seleciona o welcome correto baseado na plataforma e orçamento
+                    const welcome = normalizeMessageText(welcomeTemplates[platform]?.[budget]);
+                    if (!welcome) {
+                        return;
+                    }
+
                     currentWelcomeText = welcome;
                     
                     // Atualizar o preview

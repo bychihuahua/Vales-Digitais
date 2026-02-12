@@ -621,6 +621,14 @@
             font-size: 16px;
         }
         
+        .update-list li.no-dot {
+            padding-left: 0;
+        }
+
+        .update-list li.no-dot:before {
+            content: none;
+        }
+        
         .future-updates {
             background-color: #f0f8ff;
             border-left: 4px solid #0066cc;
@@ -667,9 +675,9 @@
                 
                 <div class="update-subtitle">Novidades desta versão:</div>
                 <ul class="update-list">
-                    <li>Novo design mais leve e profissional</li>
-                    <li>Nova aba de <strong>Welcomes</strong> com templates prontos</li>
-                    <li>Organização de conteúdo otimizada para o dia a dia</li>
+                    <li class="no-dot">Novo design mais leve e profissional</li>
+                    <li class="no-dot">Nova aba de <strong>Welcomes</strong> com templates prontos</li>
+                    <li class="no-dot">Organização de conteúdo otimizada para o dia a dia</li>
                 </ul>
                 
                 <div class="update-subtitle">Próximos passos:</div>
@@ -770,16 +778,16 @@ Equipa Leadzai
                 </div>
             </div>
             
-            <!-- Template 2: Aviso -->
+            <!-- Template 2: Confirmação do Envio do Pedido -->
             <div class="template-container">
-                <h3>2. Email de Aviso</h3>
+                <h3>2. Confirmação do Envio do Pedido</h3>
                 
                 <div class="input-group">
                     <label for="warningEmail">Insira o email do cliente:</label>
                     <input type="email" id="warningEmail" placeholder="exemplo@empresa.com">
                 </div>
                 
-                <button class="template-btn" id="generateWarningBtn">Gerar Email de Aviso</button>
+                <button class="template-btn" id="generateWarningBtn">Gerar Email de Confirmação do Envio</button>
                 
                 <div class="template-text" id="warningText">
                     <button class="copy-btn" id="copyWarningBtn" title="Clique para copiar ou pressione Ctrl+C">Copiar Tudo</button>
@@ -902,7 +910,7 @@ Equipa Leadzai
                 
                 <div class="input-group">
                     <label for="numberInput">Digite o valor estimado de cliques:</label>
-                    <input type="number" id="numberInput" placeholder="Ex: 490" min="0" step="any" autofocus>
+                    <input type="number" id="numberInput" placeholder="Ex: 0" min="0" step="any" autofocus>
                 </div>
                 
                 <button class="calculate-btn" id="calculateBtn">Calcular Intervalo</button>
@@ -946,7 +954,7 @@ Boa tarde,
 
 A sua campanha está criada e encontra-se em anexo para que possa analisar.
 
-Estimamos que o potencial de cliques esperado por mês se situe entre <span id="minText">392</span> e <span id="maxText">589</span>.
+Estimamos que o potencial de cliques esperado por mês se situe entre <span id="minText">0</span> e <span id="maxText">0</span>.
     • Nota: Esta projeção é feita sob a premissa de que a campanha e o seu website se mantêm integralmente elegíveis e em conformidade com as políticas das plataformas (Meta/Google). O número real de cliques poderá variar significativamente caso existam restrições políticas, limitações técnicas no website, ou outros fatores que possam impactar o desempenho.
 
 Por favor, analise os anúncios e responda a este email com a sua aprovação.
@@ -1144,16 +1152,24 @@ Equipa Leadzai`
             const invoiceEmails = {
                 fatura: `Caro cliente,
 
-Em anexo, enviamos a fatura referente ao IVA. Conforme combinado, solicitamos o envio do comprovativo de pagamento assim que possível.
+Em anexo, enviamos a fatura referente ao IVA.
+
+Conforme combinado, solicitamos o envio do comprovativo de pagamento assim que possível.
+
 Caso necessite de alguma informação adicional ou tenha alguma questão, não hesite em contactar-nos.
 
 Agradecemos pela confiança depositada em nosso trabalho.
+
 Melhores cumprimentos,
 Equipa Leadzai`,
 
                 confirmacao: `Bom dia,
 
-Exatamente. Confirmo que o valor a liquidar por vossa parte é apenas o correspondente ao IVA. O restante valor da fatura é coberto pelo incentivo do Voucher Digital (PRR).
+Exatamente.
+
+Confirmo que o valor a liquidar por vossa parte é apenas o correspondente ao IVA.
+
+O restante valor da fatura é coberto pelo incentivo do Voucher Digital (PRR).
 
 Ficamos a aguardar o envio do comprovativo de pagamento para concluirmos o processo administrativo.
 
@@ -1163,7 +1179,13 @@ Melhores cumprimentos,
 Equipa Leadzai`,
 
                 agradecimento: `Boa tarde,
-Obrigada pelo envio do comprovativo. Confirmamos a receção do pagamento do IVA. Agradecemos a sua colaboração e desejamos os maiores sucessos para os seus projetos.
+
+Obrigada pelo envio do comprovativo.
+
+Confirmamos a receção do pagamento do IVA.
+
+Agradecemos a sua colaboração e desejamos os maiores sucessos para os seus projetos.
+
 Melhores cumprimentos,
 Equipa Leadzai`
             };
@@ -1727,7 +1749,7 @@ Escolhe ou sugere as melhores imagens para cada ad.`
             copyWarningBtn.addEventListener('click', function() {
                 const email = warningEmailInput.value.trim();
                 if (!email) {
-                    alert('Por favor, insira um email e clique em "Gerar Email de Aviso" primeiro.');
+                    alert('Por favor, insira um email e clique em "Gerar Email de Confirmação do Envio" primeiro.');
                     return;
                 }
                 
@@ -1888,7 +1910,7 @@ Escolhe ou sugere as melhores imagens para cada ad.`
             if (numberInput && numberInput.value) {
                 calculateInterval();
             } else if (numberInput) {
-                numberInput.value = "490";
+                numberInput.value = "0";
                 calculateInterval();
             }
             
